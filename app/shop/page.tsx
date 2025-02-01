@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image"; // Next.js optimiertes Image
 
 export default function ShopPage() {
   const [products, setProducts] = useState<any[]>([]);
@@ -75,25 +76,38 @@ export default function ShopPage() {
       {/* GRID MIT 3 CONTAINERN */}
       <div className="grid grid-cols-10 gap-6">
         {/* Container 1 - Produktbild (40%) */}
-        <div className="col-span-4">
+        <div className="col-span-4 relative h-80">
           {selectedVariant?.Bild_1 ? (
-            <img src={selectedVariant.Bild_1} alt="Produktbild" className="w-full h-80 object-contain" />
+            <Image
+              src={selectedVariant.Bild_1}
+              alt="Produktbild"
+              layout="fill"
+              objectFit="contain"
+              quality={100}
+              priority
+            />
           ) : (
             <p className="text-red-500">Kein Bild verfügbar</p>
           )}
         </div>
 
         {/* Container 2 - Variantenbild (30%) */}
-        <div className="col-span-3">
+        <div className="col-span-3 relative h-80">
           {selectedVariant?.Bild_2 ? (
-            <img src={selectedVariant.Bild_2} alt="Variantenbild" className="w-full h-80 object-contain" />
+            <Image
+              src={selectedVariant.Bild_2}
+              alt="Variantenbild"
+              layout="fill"
+              objectFit="contain"
+              quality={100}
+            />
           ) : (
             <p className="text-gray-500">Keine Variante verfügbar</p>
           )}
         </div>
 
         {/* Container 3 - Beschreibung, Dropdowns & Buttons (30%) */}
-        <div className="col-span-3 flex flex-col justify-between">
+        <div className="col-span-3 flex flex-col justify-between p-4 border border-gray-300 rounded-lg shadow-sm">
           <div>
             <h2 className="text-xl font-semibold">{selectedVariant?.Name || "Kein Name"}</h2>
             <p className="text-gray-600">{selectedVariant?.Beschreibung_1 || "Keine Beschreibung verfügbar"}</p>
@@ -121,10 +135,10 @@ export default function ShopPage() {
 
           {/* Kaufen-Button + Zur Kasse Button */}
           <div className="flex flex-col gap-2 mt-6">
-            <button className="bg-blue-500 text-white px-4 py-2 rounded">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
               In den Warenkorb
             </button>
-            <button className="bg-orange-500 text-white px-4 py-2 rounded">
+            <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
               Zur Kasse
             </button>
           </div>
