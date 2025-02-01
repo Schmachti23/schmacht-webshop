@@ -1,7 +1,7 @@
-// ✅ Next.js erwartet eine Root-Komponente namens `RootLayout`
 "use client";
 
 import "./globals.css";
+import Link from "next/link";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,9 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Header */}
         <header className="sticky top-0 z-50 flex justify-between items-center p-4 bg-white border-b border-gray-300">
           {/* Logo */}
-          <a href="/" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <img src="/logo_schriftzug.png" alt="Schmacht Logo" className="w-32 h-auto" />
-          </a>
+          </Link>
 
           {/* Slogan */}
           <p className="text-xl italic text-black text-center font-serif flex-1">
@@ -26,10 +26,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           {/* Navigation */}
           <nav className="flex gap-4">
-            <a href="/shop" className="text-gray-800 font-bold hover:underline">Shop</a>
-            <a href="/konto" className="text-gray-800 font-bold hover:underline">Konto</a>
-            <a href="/warenkorb" className="text-gray-800 font-bold hover:underline">Warenkorb</a>
-            <a href="/kasse" className="text-gray-800 font-bold hover:underline">Kasse</a>
+            <Link href="/shop" className="text-gray-800 font-bold hover:underline">Shop</Link>
+            <Link href="/konto" className="text-gray-800 font-bold hover:underline">Konto</Link>
+            <Link href="/warenkorb" className="text-gray-800 font-bold hover:underline">Warenkorb</Link>
+            <Link href="/kasse" className="text-gray-800 font-bold hover:underline">Kasse</Link>
           </nav>
         </header>
 
@@ -38,9 +38,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Footer */}
         <footer className="bg-gray-100 p-5 text-center border-t border-gray-300">
-          <a href="/impressum" className="mx-4 text-gray-700 hover:underline">Impressum</a>
-          <a href="/agb" className="mx-4 text-gray-700 hover:underline">AGB</a>
-          <a href="/widerruf" className="mx-4 text-gray-700 hover:underline">Widerrufsbelehrung</a>
+          <Link href="/impressum" className="mx-4 text-gray-700 hover:underline">Impressum</Link>
+          <Link href="/agb" className="mx-4 text-gray-700 hover:underline">AGB</Link>
+          <Link href="/widerruf" className="mx-4 text-gray-700 hover:underline">Widerrufsbelehrung</Link>
           <p className="mt-2 text-gray-600 text-sm">
             © {new Date().getFullYear()} Schmacht - Alle Rechte vorbehalten.
           </p>
